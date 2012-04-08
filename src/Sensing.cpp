@@ -67,7 +67,7 @@ void Sensing::draw()
 void Sensing::drawBalloon(float xPos, float yPos, int color)
 {
 	// draw bulleye
-	ofSetColor(color);
+	ofSetHexColor(color);
 	
 	ofFill();
 	ofCircle(xPos, yPos, 3);
