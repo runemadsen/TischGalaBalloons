@@ -14,6 +14,7 @@ public:
 	
 	void setColors(vector <ofColor> colors);
     void setDuration(int duration);
+    void setDelayBetween(int delay);
 	
     void update();
 	void draw();
@@ -23,6 +24,7 @@ public:
 	
 private:
 	
+    int _delay;
     int _duration;
 	vector <string> _imgNames;
 	vector <ofColor> _colors;

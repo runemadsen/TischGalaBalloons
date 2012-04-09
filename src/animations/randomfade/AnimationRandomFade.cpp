@@ -16,6 +16,7 @@ AnimationRandomFade::AnimationRandomFade(vector <string> imgNames)
 	_colors.push_back(color);
     
     _duration = 200;
+    _delay = 0;
 }
 
 /* Update
@@ -53,6 +54,7 @@ BalloonController * AnimationRandomFade::getNewController(Balloon * model)
 	b->setColor(_colors[modulo]);
     b->setDuration(_duration);
     b->setStart(round(ofRandom(0, _duration)));
+    b->setDelayBetween(_delay);
 	
 	return b;
 }
@@ -83,6 +85,11 @@ void AnimationRandomFade::setColors(vector <ofColor> colors)
 void AnimationRandomFade::setDuration(int duration)
 {
 	_duration = duration;
+}
+
+void AnimationRandomFade::setDelayBetween(int delay)
+{
+    _delay = delay;
 }
 
 

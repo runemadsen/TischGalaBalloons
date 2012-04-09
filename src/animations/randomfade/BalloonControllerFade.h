@@ -25,11 +25,18 @@ public:
 	void setColor(ofColor color);
     void setDuration(int duration);
     void setStart(int start);	
+    void setDelayBetween(int delay);
     
 private:
 	
 	ofImage _img;
 	ofColor _color;
-	
+    
 	PTimer timer;
+    PTimer _delayTimer;
+    
+    enum { FADING, DELAYING };
+    
+    int _state;
+    long _delayStart;
 };

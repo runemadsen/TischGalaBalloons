@@ -6,10 +6,14 @@
 BalloonControllerFade::BalloonControllerFade(string imgName, Balloon * model) : BalloonController(model)
 {
 	timer.setUpDown(true);
-	//timer.setState(-1);
 	timer.setDuration(200);
     timer.setTime(0);
     timer.setState(1);
+    
+    _delayTimer.setDuration(0);
+    _delayTimer.setState(1);
+    
+    _state = FADING;
 	
 	_color.r = 255;
 	_color.g = 255;
@@ -22,8 +26,26 @@ BalloonControllerFade::BalloonControllerFade(string imgName, Balloon * model) : 
  ___________________________________________________________ */
 
 void BalloonControllerFade::update()
-{
-	timer.tick();
+{    
+    if(_state == FADING)
+    {
+        timer.tick();
+        
+        if(_delayTimer.getDuration() != 0 && timer.getTime() == 0)
+        {
+            _state = DELAYING;
+        }
+    }
+    else if(_state == DELAYING)
+    {
+        _delayTimer.tick();
+        
+        if(_delayTimer.getDuration() == _delayTimer.getTime())
+        {
+            _delayTimer.setTime(0);
+            _state = FADING;
+        }
+    }
 }
 
 /* Draw
@@ -77,4 +99,17 @@ void BalloonControllerFade::setDuration(int duration)
 void BalloonControllerFade::setStart(int start)
 {
 	timer.setTime(start);
+}
+
+void BalloonControllerFade::setDelayBetween(int delay)
+{
+    _delayTimer.setDuration(delay);
+    
+    // if delay is greater than 0 we start at a random delay
+    if(delay > 0)
+    {
+        _state = DELAYING;
+        _delayTimer.setTime(round(ofRandom(0, delay)));
+        timer.setTime(0);
+    }
 }
