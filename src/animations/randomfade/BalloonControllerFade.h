@@ -22,9 +22,10 @@ public:
 	
 	void destroy();
 	
-	void setStartNum(int num);
 	void setColor(ofColor color);
-	
+    void setDuration(int duration);
+    void setStart(int start);	
+    
 private:
 	
 	ofImage _img;

@@ -6,20 +6,16 @@
 BalloonControllerFade::BalloonControllerFade(string imgName, Balloon * model) : BalloonController(model)
 {
 	timer.setUpDown(true);
-	timer.setState(-1);
+	//timer.setState(-1);
 	timer.setDuration(200);
-	timer.setTime(0);
+    timer.setTime(0);
+    timer.setState(1);
 	
 	_color.r = 255;
 	_color.g = 255;
 	_color.b = 255;
 	
 	_img.loadImage(imgName);
-}
-
-void BalloonControllerFade::setStartNum(int num)
-{
-	timer.setTime(num);
 }
 
 /* Update
@@ -51,19 +47,8 @@ void BalloonControllerFade::draw()
 /* Midi note on / off
  ___________________________________________________________ */
 
-void BalloonControllerFade::noteOn()
-{
-	//timer.setState(1);
-	
-	//timer.setTime(400);
-	
-	//timer.setState(-1);
-}
-
-void BalloonControllerFade::noteOff()
-{
-	//timer.setState(-1);
-}
+void BalloonControllerFade::noteOn() {}
+void BalloonControllerFade::noteOff() {}
 
 /* Destroy
  ___________________________________________________________ */
@@ -82,4 +67,14 @@ void BalloonControllerFade::destroy()
 void BalloonControllerFade::setColor(ofColor color)
 {
 	_color = color;
+}
+
+void BalloonControllerFade::setDuration(int duration)
+{
+	timer.setDuration(duration);
+}
+
+void BalloonControllerFade::setStart(int start)
+{
+	timer.setTime(start);
 }

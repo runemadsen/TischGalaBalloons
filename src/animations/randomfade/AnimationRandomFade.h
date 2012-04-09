@@ -13,6 +13,7 @@ public:
 	AnimationRandomFade(vector <string> imgNames);
 	
 	void setColors(vector <ofColor> colors);
+    void setDuration(int duration);
 	
     void update();
 	void draw();
@@ -22,6 +23,7 @@ public:
 	
 private:
 	
+    int _duration;
 	vector <string> _imgNames;
 	vector <ofColor> _colors;
 };
