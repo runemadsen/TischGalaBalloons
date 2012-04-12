@@ -7,6 +7,27 @@ TischGalla::TischGalla()
 
 void TischGalla::createAnimations()
 {	
+    /* Words
+     --------------------------------------------------------------*/
+	
+    vector <string> words;
+	words.push_back("words/act.png");
+    words.push_back("words/be.png");
+    words.push_back("words/breathe.png");
+    words.push_back("words/dance.png");
+    words.push_back("words/lyrics.png");
+    words.push_back("words/music.png");
+    words.push_back("words/sing.png");
+    words.push_back("words/talk.png");
+    words.push_back("words/theatre.png");
+    words.push_back("words/tv.png");
+    words.push_back("words/words.png");
+	AnimationRandomFade * wordsAnimation = new AnimationRandomFade(words);
+    wordsAnimation->setDuration(200);
+    wordsAnimation->setDelayBetween(1000);
+    wordsAnimation->setReverse(true);
+	_animations.push_back(wordsAnimation);
+    
     /* Heads Test
      --------------------------------------------------------------*/
     vector <string> heads;
@@ -105,7 +126,6 @@ void TischGalla::createAnimations()
 	_animations.push_back(animation5);
     
 
-    
     /* All kinds of colors Tisch Logo
      --------------------------------------------------------------*/
     

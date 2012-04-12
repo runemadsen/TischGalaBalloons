@@ -58,6 +58,8 @@ void BalloonControllerFade::draw()
 	ofRectangle bounds = _model->getBoundsFromSize(_img.getWidth(), _img.getHeight());
 	
 	float alpha = Quad::easeIn(timer.getTime(), 0, 255, timer.getDuration());
+    
+    if(_reverse) alpha = 255 - alpha;
 	
 	ofEnableAlphaBlending();
 	
@@ -91,6 +93,11 @@ void BalloonControllerFade::destroy()
 void BalloonControllerFade::setColor(ofColor color)
 {
 	_color = color;
+}
+
+void BalloonControllerFade::setReverse(bool reverse)
+{
+	_reverse = reverse;
 }
 
 void BalloonControllerFade::setDuration(int duration)

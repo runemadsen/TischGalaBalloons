@@ -26,6 +26,7 @@ public:
     void setDuration(int duration);
     void setStart(int start);	
     void setDelayBetween(int delay);
+    void setReverse(bool reverse);
     
 private:
 	
@@ -37,6 +38,7 @@ private:
     
     enum { FADING, DELAYING };
     
+    bool _reverse;
     int _state;
     long _delayStart;
 };

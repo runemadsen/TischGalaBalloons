@@ -6,6 +6,7 @@
 AnimationRandomFade::AnimationRandomFade(vector <string> imgNames)
 {
 	_usingControllers = true;
+    _reverse = false;
 	
 	_imgNames = imgNames;
 	
@@ -55,6 +56,7 @@ BalloonController * AnimationRandomFade::getNewController(Balloon * model)
     b->setDuration(_duration);
     b->setStart(round(ofRandom(0, _duration)));
     b->setDelayBetween(_delay);
+    b->setReverse(_reverse);
 	
 	return b;
 }
@@ -90,6 +92,11 @@ void AnimationRandomFade::setDuration(int duration)
 void AnimationRandomFade::setDelayBetween(int delay)
 {
     _delay = delay;
+}
+
+void AnimationRandomFade::setReverse(bool reverse)
+{
+	_reverse = reverse;
 }
 
 
