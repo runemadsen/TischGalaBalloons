@@ -7,6 +7,31 @@ TischGalla::TischGalla()
 
 void TischGalla::createAnimations()
 {	
+    /* Heads Test
+     --------------------------------------------------------------*/
+    vector <string> heads;
+	heads.push_back("heads/430316.png");
+    heads.push_back("heads/555317.png");
+    heads.push_back("heads/alexa.png");
+    heads.push_back("heads/alisonwien.png");
+    heads.push_back("heads/chrisbryan.png");
+    heads.push_back("heads/cody.png");
+    heads.push_back("heads/headshot.png");
+    heads.push_back("heads/img6871.png");
+    heads.push_back("heads/img7378.png");
+    heads.push_back("heads/kalimcburney.png");
+    heads.push_back("heads/kaylakleinman.png");
+    heads.push_back("heads/keithleroyal.png");
+    heads.push_back("heads/kristenleigh.png");
+    heads.push_back("heads/mdejohn.png");
+    heads.push_back("heads/meghan.png");
+    heads.push_back("heads/mialongenecker.png");
+    heads.push_back("heads/mollyhoran.png");
+    heads.push_back("heads/test.png");
+    AnimationRandomFade * headAnimation = new AnimationRandomFade(heads);
+	headAnimation->setDuration(150);
+    _animations.push_back(headAnimation);
+    
 	/* Delayed Tisch Logo
     --------------------------------------------------------------*/
 	
@@ -38,11 +63,48 @@ void TischGalla::createAnimations()
 	aColor.b = 211;
 	colors.push_back(aColor);
 	
-	AnimationBlinker * animation3 = new AnimationBlinker(inverted);
+	AnimationRandomFade * animation3 = new AnimationRandomFade(inverted);
 	animation3->setColors(colors);
-    animation3->setFadeTime(100);
-	animation3->setRandomAlpha(true);
+    animation3->setDuration(200);
+    animation3->setDelayBetween(1000);
     _animations.push_back(animation3);
+    
+    /* No Delayed Purple Tisch Logo
+     --------------------------------------------------------------*/
+    
+    AnimationRandomFade * noDelayPurple = new AnimationRandomFade(inverted);
+	noDelayPurple->setDuration(150);
+    noDelayPurple->setColors(colors);
+    _animations.push_back(noDelayPurple);
+    
+    /* Purple Tisch Logo
+     --------------------------------------------------------------*/
+    
+    vector <string> lights;
+	lights.push_back("balloon3.png");
+    
+	AnimationRandomFade * delayLights = new AnimationRandomFade(lights);
+    delayLights->setDuration(200);
+    delayLights->setDelayBetween(1000);
+    _animations.push_back(delayLights);
+    
+    /* No Delayed Purple Tisch Logo
+     --------------------------------------------------------------*/
+    
+    AnimationRandomFade * noDelayLights = new AnimationRandomFade(lights);
+	noDelayLights->setDuration(150);
+    _animations.push_back(noDelayLights);
+    
+    /*-------------------------------------------------------------
+	 Blinking white lights
+	 --------------------------------------------------------------*/
+	
+	AnimationBlinker * animation5 = new AnimationBlinker(lights);
+    animation5->setFadeTime(150);
+    animation5->setRandomAlpha(true);
+	_animations.push_back(animation5);
+    
+
     
     /* All kinds of colors Tisch Logo
      --------------------------------------------------------------*/
@@ -67,17 +129,6 @@ void TischGalla::createAnimations()
     animation4->setFadeTime(100);
 	animation4->setRandomAlpha(true);
     _animations.push_back(animation4);
-    
-    /*-------------------------------------------------------------
-	 Blinking white lights
-	 --------------------------------------------------------------*/
-	
-    imgNames.clear();
-	imgNames.push_back("balloon3.png");
-	AnimationBlinker * animation5 = new AnimationBlinker(imgNames);
-    animation5->setFadeTime(150);
-    animation5->setRandomAlpha(true);
-	_animations.push_back(animation5);
     
 	_loaded = true;	
 }

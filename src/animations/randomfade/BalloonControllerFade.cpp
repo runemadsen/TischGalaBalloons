@@ -33,6 +33,8 @@ void BalloonControllerFade::update()
         
         if(_delayTimer.getDuration() != 0 && timer.getTime() == 0)
         {
+            timer.setTime(0);
+            timer.setState(1);
             _state = DELAYING;
         }
     }
