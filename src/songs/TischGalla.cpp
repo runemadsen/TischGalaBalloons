@@ -7,6 +7,10 @@ TischGalla::TischGalla()
 
 void TischGalla::createAnimations()
 {	
+    
+    AnimationEmpty * empty = new AnimationEmpty();
+	_animations.push_back(empty);
+    
     /* Words
      --------------------------------------------------------------*/
 	
@@ -24,8 +28,8 @@ void TischGalla::createAnimations()
     words.push_back("words/words.png");
 	AnimationRandomFade * wordsAnimation = new AnimationRandomFade(words);
     wordsAnimation->setDuration(200);
-    wordsAnimation->setDelayBetween(1000);
-    wordsAnimation->setReverse(true);
+    wordsAnimation->setTransitionTime(1000);
+    //wordsAnimation->setDelayBetween(1000);
 	_animations.push_back(wordsAnimation);
     
     /* Heads Test
@@ -49,8 +53,20 @@ void TischGalla::createAnimations()
     heads.push_back("heads/mialongenecker.png");
     heads.push_back("heads/mollyhoran.png");
     heads.push_back("heads/test.png");
+    heads.push_back("heads/sc01f408b5.png");
+    heads.push_back("heads/megangriffith.png");
+    heads.push_back("heads/emily.png");
+    
+    AnimationRandomFade * someHeads = new AnimationRandomFade(heads);
+    someHeads->setDuration(200);
+    someHeads->setDelayBetween(1000);
+	_animations.push_back(someHeads);
+
+    
     AnimationRandomFade * headAnimation = new AnimationRandomFade(heads);
 	headAnimation->setDuration(150);
+    headAnimation->setDelayBetween(1000);
+    headAnimation->setReverse(true);
     _animations.push_back(headAnimation);
     
 	/* Delayed Tisch Logo

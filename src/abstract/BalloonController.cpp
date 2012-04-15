@@ -8,6 +8,7 @@ BalloonController::BalloonController(Balloon * model)
 	_model = model;
 	
 	_offSet = 0;
+    _opacity = 1;
 	_useOffset = false;
 	
 	_midiNote = DISABLED;

@@ -27,10 +27,14 @@ public:
 	
 	virtual void allOn();
 	virtual void allOff();
+    
+    int getTransitionTime() { return _transitionTime; }
+    void setTransitionTime(int transitionTime) { _transitionTime = transitionTime; }
 	
 	virtual void setMask(ofImage * mask) {}
 	virtual void setBounds(ofRectangle * bounds) {}
 	
+    void setOpacity(float opacity);
 	void setUseOffset(bool useOffset);
 	void setOffset(int offSet);
 	
@@ -47,4 +51,6 @@ protected:
 	
 	int _offSet;
 	bool _useOffset;
+    
+    int _transitionTime;
 };

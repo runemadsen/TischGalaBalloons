@@ -60,6 +60,8 @@ void BalloonControllerFade::draw()
 	float alpha = Quad::easeIn(timer.getTime(), 0, 255, timer.getDuration());
     
     if(_reverse) alpha = 255 - alpha;
+    
+    alpha = alpha * _opacity;
 	
 	ofEnableAlphaBlending();
 	

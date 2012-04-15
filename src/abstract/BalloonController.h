@@ -26,6 +26,7 @@ public:
 	
 	void setUseOffset(bool useOffset) { _useOffset = useOffset; }
 	void setOffset(int offSet) { _offSet = offSet; }
+    void setOpacity(float opacity) { _opacity = opacity; }
 	
 protected:
 	
@@ -33,4 +34,5 @@ protected:
 	int _midiNote;
 	int _offSet;
 	int _useOffset;
+    float _opacity;
 };

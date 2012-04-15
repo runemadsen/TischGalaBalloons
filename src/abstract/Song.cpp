@@ -8,6 +8,8 @@ Song::Song()
 	_bank = 0;
 	_selectedAnimation = 0;
 	_loaded = false;
+    
+    _state = NORMAL;
 }
 
 /* Update
@@ -17,6 +19,23 @@ void Song::update()
 {
 	if(_animations.size() > 0 && _loaded) 
 	{
+        if(_state == TRANSITION)
+        {
+            _transitionTimer.tick();
+            float opacity = _transitionTimer.getPercent();
+            _animations[_selectedAnimation]->setOpacity(1 - opacity);
+            _animations[_transitionTo]->setOpacity(opacity);
+            _animations[_transitionTo]->update();
+            
+            if(_transitionTimer.getTime() >= _transitionTimer.getDuration())
+            {
+                _state = NORMAL;
+                _animations[_selectedAnimation]->wasDeselected();
+                _selectedAnimation = _transitionTo;
+                cout << "Finished transition \n";
+            }
+        }
+        
 		_animations[_selectedAnimation]->update();
 	}
 }
@@ -42,6 +61,11 @@ void Song::draw()
 	{
 		if(_animations.size() > 0) 
 		{
+            if(_state == TRANSITION)
+            {
+                _animations[_transitionTo]->draw();
+            }
+                
 			_animations[_selectedAnimation]->draw();
 		}
 	}
@@ -88,12 +112,15 @@ void Song::changeAnimation(int num)
 {
 	if (num >= 0 && num < _animations.size() && _loaded) 
 	{
-		_animations[_selectedAnimation]->wasDeselected();
+        _transitionTo = num;
+		_animations[_transitionTo]->wasSelected();
+        _transitionTimer.setDuration(_animations[_selectedAnimation]->getTransitionTime());
 		
-		_selectedAnimation = num;
-		_animations[_selectedAnimation]->wasSelected();
-		
-		cout << "--> ANIMATION CHANGED: " << _selectedAnimation + 1 << endl;
+		cout << "--> TRANSITIONING: " << _transitionTo + 1 << endl;
+        
+        _transitionTimer.setTime(0);
+        _transitionTimer.setState(1);
+        _state = TRANSITION;
 	}
 }
 

@@ -60,13 +60,8 @@ void testApp::update()
 
 void testApp::draw()
 {
-	ofSetColor(255, 255, 255);
-    stage.draw(0, 0);
 	songs[currentSong]->draw();
 	sensing->draw();
-    //string frameNum = ofToString(ofGetFrameNum());  
-    //ofSaveScreen("render/file" +frameNum + ".png");
-    //cout << "rendered " << frameNum << endl;
 }
 
 /* Change song

@@ -4,6 +4,7 @@
 #include "ofxMidi.h"
 #include "Balloon.h"
 #include "Animation.h"
+#include "Tools.h"
 
 class Song
 {
@@ -11,6 +12,8 @@ class Song
 public:
     
     Song();
+    
+    enum { NORMAL, TRANSITION };
 	
 	void update();
 	void draw();
@@ -39,5 +42,8 @@ protected:
 	int _selectedAnimation;
 	vector <Animation *> _animations;
 	bool _loaded;
-	
+    
+    int _transitionTo;
+    int _state;
+    PTimer _transitionTimer;
 };

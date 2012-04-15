@@ -100,6 +100,11 @@ public:
 		_time = 0;
 		_state = 0;
 	}
+    
+    float getPercent()
+    {
+        return _time / _duration;
+    }
 	
 private:
 	

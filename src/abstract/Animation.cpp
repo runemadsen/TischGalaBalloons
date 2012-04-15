@@ -9,6 +9,7 @@ Animation::Animation()
 	
 	_offSet = 0;
 	_useOffset = false;
+    _transitionTime = 100;
 }
 
 /* add / update / delete controllers with models
@@ -165,4 +166,12 @@ void Animation::setMidiNotes(vector <int> midiNotes)
 void Animation::setBalloons(vector <Balloon *> points)
 {
 	_points = points;
+}
+
+void Animation::setOpacity(float opacity)
+{
+	for (int i = 0; i < _controllers.size(); i++) 
+	{
+		_controllers[i]->setOpacity(opacity);
+	}
 }
