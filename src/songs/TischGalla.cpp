@@ -9,31 +9,92 @@ void TischGalla::createAnimations()
 {	
     
     AnimationEmpty * empty = new AnimationEmpty();
+    empty->setTransitionTime(1000);
 	_animations.push_back(empty);
+    
+    /* Stars
+     --------------------------------------------------------------*/
+	
+	AnimationSequence * starsAnimation = new AnimationSequence("stars_masked/stars_loop.", "png", 1, 494, 3);
+    starsAnimation->setTransitionTime(800);
+	_animations.push_back(starsAnimation);
+    
+    /* Spare Slow Lights
+     --------------------------------------------------------------*/
+    
+    vector <string> lights;
+	lights.push_back("balloon3.png");
+    
+	AnimationRandomFade * delayLights = new AnimationRandomFade(lights);
+    delayLights->setDuration(500);
+    delayLights->setDelayBetween(1000);
+    delayLights->setTransitionTime(500);
+    _animations.push_back(delayLights);
+    
+    /* Full Slow Lights
+     --------------------------------------------------------------*/
+    
+    AnimationRandomFade * noDelayLights = new AnimationRandomFade(lights);
+	noDelayLights->setDuration(500);
+    noDelayLights->setTransitionTime(500);
+    _animations.push_back(noDelayLights); 
+    
+    /* Full Fast Lights
+     --------------------------------------------------------------*/
+    
+    AnimationRandomFade * fastLights = new AnimationRandomFade(lights);
+	fastLights->setDuration(150);
+    fastLights->setTransitionTime(500);
+    _animations.push_back(fastLights); 
     
     /* Words
      --------------------------------------------------------------*/
 	
     vector <string> words;
-	words.push_back("words/act.png");
-    words.push_back("words/be.png");
-    words.push_back("words/breathe.png");
-    words.push_back("words/dance.png");
-    words.push_back("words/lyrics.png");
-    words.push_back("words/music.png");
-    words.push_back("words/sing.png");
-    words.push_back("words/talk.png");
-    words.push_back("words/theatre.png");
-    words.push_back("words/tv.png");
-    words.push_back("words/words.png");
+    words.push_back("words2/breathe.png");
+    words.push_back("words2/time.png");
 	AnimationRandomFade * wordsAnimation = new AnimationRandomFade(words);
-    wordsAnimation->setDuration(200);
+    wordsAnimation->setDuration(500);
     wordsAnimation->setTransitionTime(1000);
     //wordsAnimation->setDelayBetween(1000);
 	_animations.push_back(wordsAnimation);
     
-    /* Heads Test
+    /* Gray Heads
      --------------------------------------------------------------*/
+    
+    vector <string> grayheads;
+	grayheads.push_back("grayheads/430316.png");
+    grayheads.push_back("grayheads/555317.png");
+    grayheads.push_back("grayheads/alexa.png");
+    grayheads.push_back("grayheads/alisonwien.png");
+    grayheads.push_back("grayheads/chrisbryan.png");
+    grayheads.push_back("grayheads/cody.png");
+    grayheads.push_back("grayheads/headshot.png");
+    grayheads.push_back("grayheads/img6871.png");
+    grayheads.push_back("grayheads/img7378.png");
+    grayheads.push_back("grayheads/kalimcburney.png");
+    grayheads.push_back("grayheads/kaylakleinman.png");
+    grayheads.push_back("grayheads/keithleroyal.png");
+    grayheads.push_back("grayheads/kristenleigh.png");
+    grayheads.push_back("grayheads/mdejohn.png");
+    grayheads.push_back("grayheads/meghan.png");
+    grayheads.push_back("grayheads/mialongenecker.png");
+    grayheads.push_back("grayheads/mollyhoran.png");
+    grayheads.push_back("grayheads/test.png");
+    grayheads.push_back("grayheads/sc01f408b5.png");
+    grayheads.push_back("grayheads/megangriffith.png");
+    grayheads.push_back("grayheads/emily.png");
+    grayheads.push_back("grayheads/caroline.png");
+    
+    AnimationRandomFade * grayHeadAnimation = new AnimationRandomFade(grayheads);
+    grayHeadAnimation->setDuration(200);
+    grayHeadAnimation->setDelayBetween(1000);
+    grayHeadAnimation->setTransitionTime(500);
+	_animations.push_back(grayHeadAnimation);
+    
+    /* Color Heads
+     --------------------------------------------------------------*/
+    
     vector <string> heads;
 	heads.push_back("heads/430316.png");
     heads.push_back("heads/555317.png");
@@ -56,115 +117,14 @@ void TischGalla::createAnimations()
     heads.push_back("heads/sc01f408b5.png");
     heads.push_back("heads/megangriffith.png");
     heads.push_back("heads/emily.png");
-    
-    AnimationRandomFade * someHeads = new AnimationRandomFade(heads);
-    someHeads->setDuration(200);
-    someHeads->setDelayBetween(1000);
-	_animations.push_back(someHeads);
+    heads.push_back("heads/caroline.png");
 
+    AnimationRandomFade * colorHeads = new AnimationRandomFade(heads);
+	colorHeads->setDuration(150);
+    colorHeads->setDelayBetween(1000);
+    colorHeads->setReverse(true);
+    _animations.push_back(colorHeads);
     
-    AnimationRandomFade * headAnimation = new AnimationRandomFade(heads);
-	headAnimation->setDuration(150);
-    headAnimation->setDelayBetween(1000);
-    headAnimation->setReverse(true);
-    _animations.push_back(headAnimation);
-    
-	/* Delayed Tisch Logo
-    --------------------------------------------------------------*/
-	
-    vector <string> imgNames;
-	imgNames.push_back("tisch.png");
-	AnimationRandomFade * animation1 = new AnimationRandomFade(imgNames);
-    animation1->setDuration(200);
-    animation1->setDelayBetween(1000);
-	_animations.push_back(animation1);
-    
-    /* No Delayed Tisch Logo
-     --------------------------------------------------------------*/
-    
-    AnimationRandomFade * animation2 = new AnimationRandomFade(imgNames);
-	animation2->setDuration(150);
-    _animations.push_back(animation2);
-    
-    /* Purple Tisch Logo
-     --------------------------------------------------------------*/
-    
-    vector <string> inverted;
-	inverted.push_back("tisch_inverted.png");
-    
-    vector <ofColor> colors;
-	
-	ofColor aColor;
-	aColor.r = 122;
-	aColor.g = 6;
-	aColor.b = 211;
-	colors.push_back(aColor);
-	
-	AnimationRandomFade * animation3 = new AnimationRandomFade(inverted);
-	animation3->setColors(colors);
-    animation3->setDuration(200);
-    animation3->setDelayBetween(1000);
-    _animations.push_back(animation3);
-    
-    /* No Delayed Purple Tisch Logo
-     --------------------------------------------------------------*/
-    
-    AnimationRandomFade * noDelayPurple = new AnimationRandomFade(inverted);
-	noDelayPurple->setDuration(150);
-    noDelayPurple->setColors(colors);
-    _animations.push_back(noDelayPurple);
-    
-    /* Purple Tisch Logo
-     --------------------------------------------------------------*/
-    
-    vector <string> lights;
-	lights.push_back("balloon3.png");
-    
-	AnimationRandomFade * delayLights = new AnimationRandomFade(lights);
-    delayLights->setDuration(200);
-    delayLights->setDelayBetween(1000);
-    _animations.push_back(delayLights);
-    
-    /* No Delayed Purple Tisch Logo
-     --------------------------------------------------------------*/
-    
-    AnimationRandomFade * noDelayLights = new AnimationRandomFade(lights);
-	noDelayLights->setDuration(150);
-    _animations.push_back(noDelayLights);
-    
-    /*-------------------------------------------------------------
-	 Blinking white lights
-	 --------------------------------------------------------------*/
-	
-	AnimationBlinker * animation5 = new AnimationBlinker(lights);
-    animation5->setFadeTime(150);
-    animation5->setRandomAlpha(true);
-	_animations.push_back(animation5);
-    
-
-    /* All kinds of colors Tisch Logo
-     --------------------------------------------------------------*/
-    
-	aColor.r = 66;
-	aColor.g = 152;
-	aColor.b = 46;
-	colors.push_back(aColor);
-    
-    aColor.r = 212;
-	aColor.g = 200;
-	aColor.b = 14;
-	colors.push_back(aColor);
-    
-    aColor.r = 212;
-	aColor.g = 23;
-	aColor.b = 14;
-	colors.push_back(aColor);
-	
-	AnimationBlinker * animation4 = new AnimationBlinker(inverted);
-	animation4->setColors(colors);
-    animation4->setFadeTime(100);
-	animation4->setRandomAlpha(true);
-    _animations.push_back(animation4);
     
 	_loaded = true;	
 }

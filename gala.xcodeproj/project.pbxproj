@@ -47,6 +47,9 @@
 		A5A24D0F1531E8B400B53C7F /* Sine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A24D031531E8B400B53C7F /* Sine.cpp */; };
 		A5A24D151531E91500B53C7F /* ofxAlphaVideoPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A24D111531E91500B53C7F /* ofxAlphaVideoPlayer.cpp */; };
 		A5A24D161531E91500B53C7F /* ofxQtUtils_alpha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A24D131531E91500B53C7F /* ofxQtUtils_alpha.cpp */; };
+		A5DF6E4A153C860100AC3200 /* AnimationSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5DF6E48153C860100AC3200 /* AnimationSequence.cpp */; };
+		A5DF6E4D153C860E00AC3200 /* BalloonControllerSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5DF6E4B153C860E00AC3200 /* BalloonControllerSequence.cpp */; };
+		A5DF6E51153C876900AC3200 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5DF6E4F153C876900AC3200 /* ofxImageSequence.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -181,6 +184,12 @@
 		A5A24D121531E91500B53C7F /* ofxAlphaVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAlphaVideoPlayer.h; sourceTree = "<group>"; };
 		A5A24D131531E91500B53C7F /* ofxQtUtils_alpha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxQtUtils_alpha.cpp; sourceTree = "<group>"; };
 		A5A24D141531E91500B53C7F /* ofxQtUtils_alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxQtUtils_alpha.h; sourceTree = "<group>"; };
+		A5DF6E48153C860100AC3200 /* AnimationSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationSequence.cpp; sourceTree = "<group>"; };
+		A5DF6E49153C860100AC3200 /* AnimationSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationSequence.h; sourceTree = "<group>"; };
+		A5DF6E4B153C860E00AC3200 /* BalloonControllerSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BalloonControllerSequence.cpp; sourceTree = "<group>"; };
+		A5DF6E4C153C860E00AC3200 /* BalloonControllerSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalloonControllerSequence.h; sourceTree = "<group>"; };
+		A5DF6E4F153C876900AC3200 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
+		A5DF6E50153C876900AC3200 /* ofxImageSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxImageSequence.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -248,6 +257,7 @@
 		A5A24C911531E57300B53C7F /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				A5DF6E47153C85E900AC3200 /* imagesequences */,
 				A5A24C921531E57300B53C7F /* blinker */,
 				A5A24C971531E57300B53C7F /* empty */,
 				A5A24C9A1531E57300B53C7F /* images */,
@@ -458,9 +468,31 @@
 			path = ../../../addons/ofxAlphaVideoPlayer;
 			sourceTree = "<group>";
 		};
+		A5DF6E47153C85E900AC3200 /* imagesequences */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF6E48153C860100AC3200 /* AnimationSequence.cpp */,
+				A5DF6E49153C860100AC3200 /* AnimationSequence.h */,
+				A5DF6E4B153C860E00AC3200 /* BalloonControllerSequence.cpp */,
+				A5DF6E4C153C860E00AC3200 /* BalloonControllerSequence.h */,
+			);
+			name = imagesequences;
+			sourceTree = "<group>";
+		};
+		A5DF6E4E153C876900AC3200 /* ofxImageSequence */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF6E4F153C876900AC3200 /* ofxImageSequence.cpp */,
+				A5DF6E50153C876900AC3200 /* ofxImageSequence.h */,
+			);
+			name = ofxImageSequence;
+			path = ../../../addons/ofxImageSequence/src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				A5DF6E4E153C876900AC3200 /* ofxImageSequence */,
 				A5A24D101531E91500B53C7F /* ofxAlphaVideoPlayer */,
 				A5A24CEE1531E8B400B53C7F /* PennerEasing */,
 				A5A24CDC1531E85A00B53C7F /* ofxMidi */,
@@ -679,6 +711,9 @@
 				A5A24D0F1531E8B400B53C7F /* Sine.cpp in Sources */,
 				A5A24D151531E91500B53C7F /* ofxAlphaVideoPlayer.cpp in Sources */,
 				A5A24D161531E91500B53C7F /* ofxQtUtils_alpha.cpp in Sources */,
+				A5DF6E4A153C860100AC3200 /* AnimationSequence.cpp in Sources */,
+				A5DF6E4D153C860E00AC3200 /* BalloonControllerSequence.cpp in Sources */,
+				A5DF6E51153C876900AC3200 /* ofxImageSequence.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

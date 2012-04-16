@@ -5,8 +5,8 @@
 
 BalloonControllerVideo::BalloonControllerVideo(string videoname, Balloon * model) : BalloonController(model)
 {	
-	head.loadMovie(videoname);
-	//head.setFrame(ofRandom(1, head.getTotalNumFrames()));
+	vid.loadMovie(videoname);
+	//vid.setFrame(ofRandom(1, vid.getTotalNumFrames()));
 	
 	_shouldPlay = false;
 }
@@ -16,16 +16,16 @@ BalloonControllerVideo::BalloonControllerVideo(string videoname, Balloon * model
 
 void BalloonControllerVideo::update()
 {
-	head.idleMovie();
+	vid.idleMovie();
 	
 	if(_shouldPlay)
 	{
-		if(head.getCurrentFrame() != 1)
+		if(vid.getCurrentFrame() != 1)
 		{
-			head.setFrame(1);
+			vid.setFrame(1);
 		}
 		
-		head.play();
+		vid.play();
 		
 		_shouldPlay = false;
 	}
@@ -40,12 +40,12 @@ void BalloonControllerVideo::draw()
 	ofSetColor(0, 0, 0, 255);
 	ofEllipse(_model->getCenterX(), _model->getCenterY(), _model->getWidth(), _model->getHeight());
 	
-	ofRectangle bounds = _model->getBoundsFromSize(head.getWidth(), head.getHeight());
+	ofRectangle bounds = _model->getBoundsFromSize(vid.getWidth(), vid.getHeight());
 	
 	ofSetColor(255, 255, 255);
 	ofEnableAlphaBlending();
 	
-	head.draw(bounds.x, bounds.y, bounds.width, bounds.height);
+	vid.draw(bounds.x, bounds.y, bounds.width, bounds.height);
 	ofDisableAlphaBlending();
 }
 
@@ -71,5 +71,5 @@ void BalloonControllerVideo::noteOff()
 
 void BalloonControllerVideo::destroy()
 {	
-	head.close();
+	vid.close();
 }

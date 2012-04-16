@@ -23,7 +23,7 @@ public:
 	
 private:
 	
-	ofxAlphaVideoPlayer head;
+	ofxAlphaVideoPlayer vid;
 	
 	bool _shouldPlay;
 };
