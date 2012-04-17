@@ -5,6 +5,9 @@
 
 BalloonControllerFade::BalloonControllerFade(string imgName, Balloon * model) : BalloonController(model)
 {
+    _backgroundName = imgName;
+    _backgroundName.insert(_backgroundName.length() - 4, "_bg");
+    
 	timer.setUpDown(true);
 	timer.setDuration(200);
     timer.setTime(0);
@@ -56,14 +59,18 @@ void BalloonControllerFade::update()
 void BalloonControllerFade::draw()
 {
 	ofRectangle bounds = _model->getBoundsFromSize(_img.getWidth(), _img.getHeight());
-	
-	float alpha = Quad::easeIn(timer.getTime(), 0, 255, timer.getDuration());
     
+    ofEnableAlphaBlending();
+    
+    if(_useBackground)
+    {
+        ofSetColor(_color.r, _color.g, _color.b, 255 * _opacity);
+        _bgImg.draw(bounds.x, bounds.y, bounds.width, bounds.height);
+    }
+    
+    float alpha = Quad::easeIn(timer.getTime(), 0, 255, timer.getDuration());
     if(_reverse) alpha = 255 - alpha;
-    
     alpha = alpha * _opacity;
-	
-	ofEnableAlphaBlending();
 	
 	ofSetColor(_color.r, _color.g, _color.b, alpha);
 	
@@ -122,5 +129,15 @@ void BalloonControllerFade::setDelayBetween(int delay)
         _state = DELAYING;
         _delayTimer.setTime(round(ofRandom(0, delay)));
         timer.setTime(0);
+    }
+}
+
+void BalloonControllerFade::setUseBackground(bool useBackground)
+{
+	_useBackground = useBackground;
+    
+    if(_useBackground)
+    {
+        _bgImg.loadImage(_backgroundName);
     }
 }

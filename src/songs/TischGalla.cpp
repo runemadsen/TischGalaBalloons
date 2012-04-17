@@ -48,22 +48,113 @@ void TischGalla::createAnimations()
     /* Full Fast Lights
      --------------------------------------------------------------*/
     
-    AnimationRandomFade * fastLights = new AnimationRandomFade(lights);
+    vector <string> goldlights;
+	goldlights.push_back("balloongold.png");
+    
+    AnimationRandomFade * fastLights = new AnimationRandomFade(goldlights);
 	fastLights->setDuration(150);
     fastLights->setTransitionTime(500);
     _animations.push_back(fastLights); 
     
-    /* Words
+    /* Flow
      --------------------------------------------------------------*/
 	
     vector <string> words;
-    words.push_back("words2/breathe.png");
-    words.push_back("words2/time.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("letters/f.png");
+    words.push_back("letters/l.png");
+    words.push_back("letters/o.png");
+    words.push_back("letters/w.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("letters/f.png");
+    words.push_back("letters/l.png");
+    words.push_back("letters/o.png");
+    words.push_back("letters/w.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
 	AnimationRandomFade * wordsAnimation = new AnimationRandomFade(words);
+    wordsAnimation->setUseBackground(true);
     wordsAnimation->setDuration(500);
     wordsAnimation->setTransitionTime(1000);
-    //wordsAnimation->setDelayBetween(1000);
 	_animations.push_back(wordsAnimation);
+    
+    /* Breathe
+     --------------------------------------------------------------*/
+	
+    words.clear();
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("letters/b.png");
+    words.push_back("letters/r.png");
+    words.push_back("letters/e.png");
+    words.push_back("letters/a.png");
+    words.push_back("letters/t.png");
+    words.push_back("letters/h.png");
+    words.push_back("letters/e.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("letters/b.png");
+    words.push_back("letters/r.png");
+    words.push_back("letters/e.png");
+    words.push_back("letters/a.png");
+    words.push_back("letters/t.png");
+    words.push_back("letters/h.png");
+    words.push_back("letters/e.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+    words.push_back("balloon3.png");
+	AnimationRandomFade * breatheAnimation = new AnimationRandomFade(words);
+    breatheAnimation->setUseBackground(true);
+    breatheAnimation->setDuration(500);
+    breatheAnimation->setTransitionTime(1000);
+	_animations.push_back(breatheAnimation);
     
     /* Gray Heads
      --------------------------------------------------------------*/

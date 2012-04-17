@@ -27,10 +27,14 @@ public:
     void setStart(int start);	
     void setDelayBetween(int delay);
     void setReverse(bool reverse);
+    void setUseBackground(bool useBackground);
     
 private:
 	
+    string _backgroundName;
+    
 	ofImage _img;
+    ofImage _bgImg;
 	ofColor _color;
     
 	PTimer timer;
@@ -38,6 +42,7 @@ private:
     
     enum { FADING, DELAYING };
     
+    bool _useBackground;
     bool _reverse;
     int _state;
     long _delayStart;

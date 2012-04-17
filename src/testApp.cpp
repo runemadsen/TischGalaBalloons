@@ -64,6 +64,9 @@ void testApp::draw()
     stage.draw(0, 0);
 	songs[currentSong]->draw();
 	sensing->draw();
+    
+    ofSetColor(255, 255, 255);
+    ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 20);
 }
 
 /* Change song
@@ -92,7 +95,7 @@ void testApp::changeSong(int bankNum)
 /* Keypressed
  -------------------------------------------------------------- */
 
-void testApp::keyPressed  (int key)
+void testApp::keyPressed(int key)
 {
     sensing->keyPressed(key);
 	

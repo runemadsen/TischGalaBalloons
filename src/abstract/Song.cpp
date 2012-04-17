@@ -114,6 +114,7 @@ void Song::changeAnimation(int num)
 	{
         _transitionTo = num;
 		_animations[_transitionTo]->wasSelected();
+        
         _transitionTimer.setDuration(_animations[_selectedAnimation]->getTransitionTime());
 		
 		cout << "--> TRANSITIONING: " << _transitionTo + 1 << endl;
@@ -126,12 +127,26 @@ void Song::changeAnimation(int num)
 
 void Song::nextAnimation()
 {
-    changeAnimation(_selectedAnimation + 1);
+    int goTo = _selectedAnimation + 1;
+    
+    if(_state == TRANSITION)
+    {
+        goTo = _transitionTo + 1;
+    }
+        
+    changeAnimation(goTo);
 }
 
 void Song::prevAnimation()
 {
-    changeAnimation(_selectedAnimation - 1);
+    int goTo = _selectedAnimation - 1;
+    
+    if(_state == TRANSITION)
+    {
+        goTo = _transitionTo - 1;
+    }
+    
+    changeAnimation(goTo);
 }
 
 Animation * Song::currentAnimation()

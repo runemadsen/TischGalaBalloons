@@ -57,6 +57,7 @@ BalloonController * AnimationRandomFade::getNewController(Balloon * model)
     b->setStart(round(ofRandom(0, _duration)));
     b->setDelayBetween(_delay);
     b->setReverse(_reverse);
+    b->setUseBackground(_useBackground);
 	
 	return b;
 }
@@ -97,6 +98,11 @@ void AnimationRandomFade::setDelayBetween(int delay)
 void AnimationRandomFade::setReverse(bool reverse)
 {
 	_reverse = reverse;
+}
+
+void AnimationRandomFade::setUseBackground(bool useBackground)
+{
+	_useBackground = useBackground;
 }
 
 

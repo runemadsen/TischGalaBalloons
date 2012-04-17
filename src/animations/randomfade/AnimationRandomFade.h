@@ -16,6 +16,7 @@ public:
     void setDuration(int duration);
     void setDelayBetween(int delay);
     void setReverse(bool reverse);
+    void setUseBackground(bool useBackground);
 	
     void update();
 	void draw();
@@ -26,6 +27,7 @@ public:
 private:
 	
     bool _reverse;
+    bool _useBackground;
     int _delay;
     int _duration;
 	vector <string> _imgNames;
