@@ -7,7 +7,6 @@ TischGalla::TischGalla()
 
 void TischGalla::createAnimations()
 {	
-    
     AnimationEmpty * empty = new AnimationEmpty();
     empty->setTransitionTime(1000);
 	_animations.push_back(empty);
@@ -30,6 +29,13 @@ void TischGalla::createAnimations()
     delayLights->setDelayBetween(1000);
     delayLights->setTransitionTime(500);
     _animations.push_back(delayLights);
+    
+    /* Full Static lights
+     --------------------------------------------------------------*/
+    
+	AnimationImages * fullStatic = new AnimationImages(lights);
+    fullStatic->setTransitionTime(500);
+    _animations.push_back(fullStatic);
     
     /* Full Slow Lights
      --------------------------------------------------------------*/
@@ -87,10 +93,18 @@ void TischGalla::createAnimations()
     grayheads.push_back("grayheads/caroline.png");
     
     AnimationRandomFade * grayHeadAnimation = new AnimationRandomFade(grayheads);
-    grayHeadAnimation->setDuration(200);
+    grayHeadAnimation->setDuration(500);
     grayHeadAnimation->setDelayBetween(1000);
     grayHeadAnimation->setTransitionTime(500);
 	_animations.push_back(grayHeadAnimation);
+    
+    /* Full Static Faces
+     --------------------------------------------------------------*/
+    
+	AnimationImages * fullStaticHeads = new AnimationImages(grayheads);
+    fullStaticHeads->setTransitionTime(500);
+    _animations.push_back(fullStaticHeads);
+
     
     /* Color Heads
      --------------------------------------------------------------*/
@@ -119,11 +133,9 @@ void TischGalla::createAnimations()
     heads.push_back("heads/emily.png");
     heads.push_back("heads/caroline.png");
 
-    AnimationRandomFade * colorHeads = new AnimationRandomFade(heads);
-	colorHeads->setDuration(150);
-    colorHeads->setDelayBetween(1000);
-    colorHeads->setReverse(true);
-    _animations.push_back(colorHeads);
+    AnimationImages * fullStaticColorHeads = new AnimationImages(heads);
+    fullStaticColorHeads->setTransitionTime(500);
+    _animations.push_back(fullStaticColorHeads);
     
     
 	_loaded = true;	

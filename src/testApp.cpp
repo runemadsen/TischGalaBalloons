@@ -60,6 +60,8 @@ void testApp::update()
 
 void testApp::draw()
 {
+    ofSetColor(255, 255, 255);
+    stage.draw(0, 0);
 	songs[currentSong]->draw();
 	sensing->draw();
 }
@@ -96,18 +98,14 @@ void testApp::keyPressed  (int key)
 	
 	if(keyControl)
 	{
-		// change song manually
+		// change animation with arrows
 		if (key == 356) // left arrow
 		{
-			int prevSong = currentSong - 1 < 0 ? 0 : currentSong - 1; 
-			
-			changeSong(songs[prevSong]->getBank());
+			songs[currentSong]->prevAnimation();
 		}
 		else if(key == 358) // right arrow
 		{
-			int nextSong = currentSong + 1 >= songs.size() ? songs.size() - 1 : currentSong + 1;
-			
-			changeSong(songs[nextSong]->getBank());
+			songs[currentSong]->nextAnimation();
 		}
 		
 		// change animation manually

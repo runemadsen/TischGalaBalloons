@@ -20,6 +20,8 @@ public:
 	void updateControllers(vector <Balloon *> balloons);
 	void newMidiMessage(ofxMidiEventArgs& eventArgs);
 	void changeAnimation(int num);
+    void nextAnimation();
+    void prevAnimation();
 	
 	Animation * currentAnimation();
 	

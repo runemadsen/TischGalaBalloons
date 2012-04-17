@@ -124,6 +124,16 @@ void Song::changeAnimation(int num)
 	}
 }
 
+void Song::nextAnimation()
+{
+    changeAnimation(_selectedAnimation + 1);
+}
+
+void Song::prevAnimation()
+{
+    changeAnimation(_selectedAnimation - 1);
+}
+
 Animation * Song::currentAnimation()
 {
 	return _animations[_selectedAnimation];

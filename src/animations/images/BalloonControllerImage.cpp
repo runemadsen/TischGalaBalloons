@@ -20,14 +20,8 @@ void BalloonControllerImage::update()
 
 void BalloonControllerImage::draw()
 {
-	ofFill();
-	ofSetColor(0, 0, 0, 255);
-	ofEllipse(_model->getCenterX(), _model->getCenterY(), _model->getWidth(), _model->getHeight());
-	
 	ofRectangle bounds = _model->getBoundsFromSize(_img.getWidth(), _img.getHeight());
-	
-	ofSetColor(255, 255, 255, 255);
-	
+	ofSetColor(255, 255, 255, 255 * _opacity);
 	_img.draw(bounds.x, bounds.y, bounds.width, bounds.height);
 }
 
