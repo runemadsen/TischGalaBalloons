@@ -8,7 +8,7 @@ void testApp::setup()
 	ofSetWindowTitle("Tisch Galla");
     ofSetFrameRate(60);
     
-    keyControl = false;
+    keyControl = true;
 	oPressed = false;
 	shouldStartSong = true;
 	currentSong = 0;
@@ -142,11 +142,11 @@ void testApp::keyPressed(int key)
 	// Enable keyControl
 	if (key =='k') 
 	{
-		keyControl = !keyControl;
+		//keyControl = !keyControl;
 		
-		string output = keyControl ? "Enabled" : "Disabled";
+		//string output = keyControl ? "Enabled" : "Disabled";
 		
-		cout << ":::::::::::: KeyControl " << output << " ::::::::::::" << endl;
+		//cout << ":::::::::::: KeyControl " << output << " ::::::::::::" << endl;
 		
 	}
 }

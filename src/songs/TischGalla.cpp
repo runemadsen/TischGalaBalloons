@@ -11,14 +11,14 @@ void TischGalla::createAnimations()
     empty->setTransitionTime(1000);
 	_animations.push_back(empty);
     
-    /* Stars
+    /* 2) Stars
      --------------------------------------------------------------*/
 	
 	AnimationSequence * starsAnimation = new AnimationSequence("stars_masked/stars_loop.", "png", 1, 494, 3);
     starsAnimation->setTransitionTime(800);
 	_animations.push_back(starsAnimation);
     
-    /* Spare Slow Lights
+    /* 3) Spare Slow Lights
      --------------------------------------------------------------*/
     
     vector <string> lights;
@@ -30,14 +30,14 @@ void TischGalla::createAnimations()
     delayLights->setTransitionTime(500);
     _animations.push_back(delayLights);
     
-    /* Full Static lights
+    /* 4) Full Static lights
      --------------------------------------------------------------*/
     
 	AnimationImages * fullStatic = new AnimationImages(lights);
     fullStatic->setTransitionTime(500);
     _animations.push_back(fullStatic);
     
-    /* Full Slow Lights
+    /* 5) Full Slow Lights
      --------------------------------------------------------------*/
     
     AnimationRandomFade * noDelayLights = new AnimationRandomFade(lights);
@@ -45,18 +45,18 @@ void TischGalla::createAnimations()
     noDelayLights->setTransitionTime(500);
     _animations.push_back(noDelayLights); 
     
-    /* Full Fast Lights
+    /* 6) Full Fast Lights
      --------------------------------------------------------------*/
     
     vector <string> goldlights;
 	goldlights.push_back("balloongold.png");
     
     AnimationRandomFade * fastLights = new AnimationRandomFade(goldlights);
-	fastLights->setDuration(150);
+	fastLights->setDuration(300);
     fastLights->setTransitionTime(500);
     _animations.push_back(fastLights); 
     
-    /* Flow
+    /* 7) Flow
      --------------------------------------------------------------*/
 	
     vector <string> words;
@@ -102,10 +102,10 @@ void TischGalla::createAnimations()
 	AnimationRandomFade * wordsAnimation = new AnimationRandomFade(words);
     wordsAnimation->setUseBackground(true);
     wordsAnimation->setDuration(500);
-    wordsAnimation->setTransitionTime(1000);
+    wordsAnimation->setTransitionTime(400);
 	_animations.push_back(wordsAnimation);
     
-    /* Breathe
+    /* 8) Breathe
      --------------------------------------------------------------*/
 	
     words.clear();
@@ -156,7 +156,7 @@ void TischGalla::createAnimations()
     breatheAnimation->setTransitionTime(1000);
 	_animations.push_back(breatheAnimation);
     
-    /* Gray Heads
+    /* 9) Gray Heads
      --------------------------------------------------------------*/
     
     vector <string> grayheads;
@@ -189,7 +189,7 @@ void TischGalla::createAnimations()
     grayHeadAnimation->setTransitionTime(500);
 	_animations.push_back(grayHeadAnimation);
     
-    /* Full Static Faces
+    /* 10) Full Static Faces
      --------------------------------------------------------------*/
     
 	AnimationImages * fullStaticHeads = new AnimationImages(grayheads);
@@ -197,7 +197,7 @@ void TischGalla::createAnimations()
     _animations.push_back(fullStaticHeads);
 
     
-    /* Color Heads
+    /* 11) Color Heads
      --------------------------------------------------------------*/
     
     vector <string> heads;
